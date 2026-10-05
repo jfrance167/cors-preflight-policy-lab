@@ -1,0 +1,3 @@
+# Preserve original fixture bytes used by frozen SHA-256 assertions.
+/fixtures/cases.json -text
+/fixtures/expected.json -text
