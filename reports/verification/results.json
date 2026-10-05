@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "checks": {
+    "tests": {
+      "command": [
+        "C:\\Users\\Jake\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit": 0
+    },
+    "optimized_tests": {
+      "command": [
+        "C:\\Users\\Jake\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit": 0
+    },
+    "compile": {
+      "command": [
+        "C:\\Users\\Jake\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "corslab",
+        "tools",
+        "tests"
+      ],
+      "exit": 0
+    },
+    "bandit": {
+      "command": [
+        "C:\\Users\\Jake\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "bandit",
+        "-r",
+        "corslab",
+        "tools",
+        "-f",
+        "json"
+      ],
+      "exit": 0
+    },
+    "json_demo": {
+      "command": [
+        "C:\\Users\\Jake\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "corslab",
+        "--output",
+        "C:\\Users\\Jake\\OneDrive - Alfred State College\\Documents\\New project\\cors-preflight-policy-lab\\reports\\verification\\demo.json"
+      ],
+      "exit": 2
+    },
+    "markdown_demo": {
+      "command": [
+        "C:\\Users\\Jake\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "corslab",
+        "--format",
+        "markdown",
+        "--output",
+        "C:\\Users\\Jake\\OneDrive - Alfred State College\\Documents\\New project\\cors-preflight-policy-lab\\reports\\verification\\demo.md"
+      ],
+      "exit": 2
+    },
+    "substring_origin": {
+      "exit": 1,
+      "detected": true,
+      "restored": true
+    },
+    "credentialed_wildcard": {
+      "exit": 1,
+      "detected": true,
+      "restored": true
+    },
+    "restored_tests": {
+      "command": [
+        "C:\\Users\\Jake\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit": 0
+    }
+  },
+  "sha256": {
+    "corslab/__init__.py": "386311af151eedb04e0ebe83f7b0ae59f5093dd15721183d68e38d13496a093c",
+    "corslab/__main__.py": "c1aa80bf0fdd3e21d318eda753ec4df5f0a33df23e78797e67b82003782c4486",
+    "corslab/contracts.py": "7f07da15337376ed299ac9374c459d5556279b5fcf1058fb1963599b65c9f1b7",
+    "corslab/model.py": "e2304b91bfe072c9e7e0035078da63b10ce87b0b50d9701ed5feb1215b46512e",
+    "tests/test_lab.py": "04aa114b284030aedcf933090a34a65452b44ba8a9f62e92bd2e22c64bd9c8b6",
+    "tools/verify.py": "a94580bd57f7e13b4a9f92edea47ea3b6f9cee75fc07e853083290ec83062214",
+    "fixtures/cases.json": "bc314f0ddd7c20a5495dc05a464893a7470b7049e6fc35454952b4b731952e07",
+    "fixtures/expected.json": "b20a3699dd03fef8f773bc60662616e53dabb980a2548a5c521f3ac7cb24d430"
+  }
+}

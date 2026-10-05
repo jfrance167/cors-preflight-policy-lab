@@ -1,0 +1,479 @@
+{
+  "schema_version": 1,
+  "component_version": "0.1.0",
+  "simulation_kind": "restricted_offline_cors_model_not_browser",
+  "case_count": 32,
+  "supported_count": 30,
+  "unsupported_count": 2,
+  "results": [
+    {
+      "id": "trusted-get",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED"
+      ]
+    },
+    {
+      "id": "trusted-403",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED"
+      ]
+    },
+    {
+      "id": "trusted-404",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED"
+      ]
+    },
+    {
+      "id": "wrong-scheme",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_NOT_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "wrong-port",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_NOT_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "wrong-subdomain",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_NOT_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "suffix-confusion",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_NOT_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "reflect-untrusted",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "null-no-share",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_NOT_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "null-reflected",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "public-wildcard",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "credentials-wildcard",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "credentials-exact",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED"
+      ]
+    },
+    {
+      "id": "credentials-missing",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "credentials-case",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "put-allowed",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_PASSED"
+      ]
+    },
+    {
+      "id": "put-denied",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_FAILED"
+      ]
+    },
+    {
+      "id": "preflight-403",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_FAILED"
+      ]
+    },
+    {
+      "id": "get-header-no-method",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_PASSED"
+      ]
+    },
+    {
+      "id": "post-json-no-method",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_PASSED"
+      ]
+    },
+    {
+      "id": "header-denied",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_FAILED"
+      ]
+    },
+    {
+      "id": "authorization-wildcard",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_FAILED"
+      ]
+    },
+    {
+      "id": "authorization-explicit",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_PASSED"
+      ]
+    },
+    {
+      "id": "header-wildcard-omit",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_PASSED"
+      ]
+    },
+    {
+      "id": "header-wildcard-include",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_FAILED"
+      ]
+    },
+    {
+      "id": "method-wildcard-omit",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_PASSED"
+      ]
+    },
+    {
+      "id": "method-wildcard-include",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_FAILED"
+      ]
+    },
+    {
+      "id": "post-sent-unreadable",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": true,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "preflight-pass-actual-fail",
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": true,
+      "reason_codes": [
+        "RESPONSE_NOT_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED",
+        "PREFLIGHT_PASSED",
+        "TRANSMISSION_NOT_PREVENTED_BY_RESPONSE_CHECK"
+      ]
+    },
+    {
+      "id": "unsupported-safe-header",
+      "supported": false,
+      "preflight_required": null,
+      "preflight_passed": null,
+      "actual_request_sent": null,
+      "response_exposed": null,
+      "intended_origin_allowed": true,
+      "fixture_effect": null,
+      "reason_codes": [
+        "UNSUPPORTED_REQUEST_HEADER"
+      ]
+    },
+    {
+      "id": "unsupported-redirect",
+      "supported": false,
+      "preflight_required": null,
+      "preflight_passed": null,
+      "actual_request_sent": null,
+      "response_exposed": null,
+      "intended_origin_allowed": true,
+      "fixture_effect": null,
+      "reason_codes": [
+        "UNSUPPORTED_INFORMATIONAL_OR_REDIRECT_STATUS"
+      ]
+    },
+    {
+      "id": "wildcard-acac-omit",
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "reason_codes": [
+        "RESPONSE_EXPOSED",
+        "APPLICATION_ORIGIN_ALLOWED"
+      ]
+    }
+  ]
+}

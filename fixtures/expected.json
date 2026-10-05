@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "source_notes": "Labels frozen before implementation; reasoned from primary sources named per family in tasks/plan.md. Protocol exposure distinct from private application intent. No browser execution.",
+  "cases": {
+    "trusted-get": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Exact serialized origin matches actual ACAO."
+    },
+    "trusted-403": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Actual response status403 does not prevent CORS exposure."
+    },
+    "trusted-404": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Actual404 remains readable if CORS succeeds."
+    },
+    "wrong-scheme": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "rationale": "Scheme mismatch."
+    },
+    "wrong-port": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "rationale": "Port mismatch."
+    },
+    "wrong-subdomain": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "rationale": "Subdomain is distinct."
+    },
+    "suffix-confusion": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "rationale": "Host suffix is not exact origin."
+    },
+    "reflect-untrusted": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "rationale": "Broad reflection can satisfy protocol but violate application intent."
+    },
+    "null-no-share": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "rationale": "Missing ACAO fails; opaque origins refused by application."
+    },
+    "null-reflected": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "rationale": "Protocol can match serialized null; intention still refuses it."
+    },
+    "public-wildcard": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": false,
+      "fixture_effect": false,
+      "rationale": "Public noncredentialed wildcard legitimate protocol exposure; private intent disallows this origin."
+    },
+    "credentials-wildcard": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Include mode forbids wildcard regardless of cookie availability."
+    },
+    "credentials-exact": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Include mode needs exact origin and true."
+    },
+    "credentials-missing": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "ACAC missing."
+    },
+    "credentials-case": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "ACAC true is case sensitive."
+    },
+    "put-allowed": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "PUT explicitly allowed by successful preflight."
+    },
+    "put-denied": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Unsafe method needs matching allowance."
+    },
+    "preflight-403": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Preflight403 fails unlike actual403."
+    },
+    "get-header-no-method": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Safelisted GET needs unsafe header permission, not explicit method."
+    },
+    "post-json-no-method": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Safelisted POST with JSON preflights for its header."
+    },
+    "header-denied": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Header allowance mismatch stops actual request."
+    },
+    "authorization-wildcard": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Authorization is never matched by wildcard."
+    },
+    "authorization-explicit": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Explicit Authorization permission."
+    },
+    "header-wildcard-omit": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Wildcard header allowance in omit mode."
+    },
+    "header-wildcard-include": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Wildcard does not match x-test in include mode."
+    },
+    "method-wildcard-omit": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Method wildcard in omit mode."
+    },
+    "method-wildcard-include": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": false,
+      "actual_request_sent": false,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "Method wildcard not effective for include."
+    },
+    "post-sent-unreadable": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": true,
+      "rationale": "Safelisted POST can be sent/effect modeled despite response CORS failure."
+    },
+    "preflight-pass-actual-fail": {
+      "supported": true,
+      "preflight_required": true,
+      "preflight_passed": true,
+      "actual_request_sent": true,
+      "response_exposed": false,
+      "intended_origin_allowed": true,
+      "fixture_effect": true,
+      "rationale": "Actual exposure is rechecked after preflight."
+    },
+    "unsupported-safe-header": {
+      "supported": false,
+      "preflight_required": null,
+      "preflight_passed": null,
+      "actual_request_sent": null,
+      "response_exposed": null,
+      "intended_origin_allowed": true,
+      "fixture_effect": null,
+      "rationale": "Accept-Language safelisting not implemented; no false deny/pass."
+    },
+    "unsupported-redirect": {
+      "supported": false,
+      "preflight_required": null,
+      "preflight_passed": null,
+      "actual_request_sent": null,
+      "response_exposed": null,
+      "intended_origin_allowed": true,
+      "fixture_effect": null,
+      "rationale": "Redirects outside this bounded model."
+    },
+    "wildcard-acac-omit": {
+      "supported": true,
+      "preflight_required": false,
+      "preflight_passed": null,
+      "actual_request_sent": true,
+      "response_exposed": true,
+      "intended_origin_allowed": true,
+      "fixture_effect": false,
+      "rationale": "ACAC is ignored when mode is not include; wildcard succeeds."
+    }
+  }
+}

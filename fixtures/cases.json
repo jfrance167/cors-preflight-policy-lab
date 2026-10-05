@@ -1,0 +1,842 @@
+{
+  "schema_version": 1,
+  "trusted_origins": [
+    "https://trusted.test"
+  ],
+  "cases": [
+    {
+      "id": "trusted-get",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "trusted-403",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 403,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "trusted-404",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 404,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "wrong-scheme",
+      "origin": "http://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "wrong-port",
+      "origin": "https://trusted.test:8443",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "wrong-subdomain",
+      "origin": "https://sub.trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "suffix-confusion",
+      "origin": "https://trusted.test.attacker.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "reflect-untrusted",
+      "origin": "https://attacker.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://attacker.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "null-no-share",
+      "origin": "null",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": []
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "null-reflected",
+      "origin": "null",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "null"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "public-wildcard",
+      "origin": "https://attacker.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "*"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "credentials-wildcard",
+      "origin": "https://trusted.test",
+      "credentials": "include",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "*"
+          ],
+          [
+            "Access-Control-Allow-Credentials",
+            "true"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "credentials-exact",
+      "origin": "https://trusted.test",
+      "credentials": "include",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Credentials",
+            "true"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "credentials-missing",
+      "origin": "https://trusted.test",
+      "credentials": "include",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "credentials-case",
+      "origin": "https://trusted.test",
+      "credentials": "include",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Credentials",
+            "True"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "put-allowed",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "PUT",
+      "headers": [],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "PUT"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            ""
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "put-denied",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "PUT",
+      "headers": [],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "DELETE"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            ""
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "preflight-403",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "PUT",
+      "headers": [],
+      "preflight": {
+        "status": 403,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "PUT"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            ""
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "get-header-no-method",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [
+        [
+          "X-Test",
+          "demo"
+        ]
+      ],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            "x-test"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "post-json-no-method",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "POST",
+      "headers": [
+        [
+          "Content-Type",
+          "application/json"
+        ]
+      ],
+      "preflight": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            "content-type"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "header-denied",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [
+        [
+          "X-Test",
+          "demo"
+        ]
+      ],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "GET"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            "other"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "authorization-wildcard",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [
+        [
+          "Authorization",
+          "synthetic"
+        ]
+      ],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "GET"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            "*"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "authorization-explicit",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [
+        [
+          "Authorization",
+          "synthetic"
+        ]
+      ],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "GET"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            "authorization"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "header-wildcard-omit",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [
+        [
+          "X-Test",
+          "demo"
+        ]
+      ],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "GET"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            "*"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "header-wildcard-include",
+      "origin": "https://trusted.test",
+      "credentials": "include",
+      "method": "GET",
+      "headers": [
+        [
+          "X-Test",
+          "demo"
+        ]
+      ],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "GET"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            "*"
+          ],
+          [
+            "Access-Control-Allow-Credentials",
+            "true"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Credentials",
+            "true"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "method-wildcard-omit",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "PUT",
+      "headers": [],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "*"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            ""
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "method-wildcard-include",
+      "origin": "https://trusted.test",
+      "credentials": "include",
+      "method": "PUT",
+      "headers": [],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "*"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            ""
+          ],
+          [
+            "Access-Control-Allow-Credentials",
+            "true"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "post-sent-unreadable",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "POST",
+      "headers": [
+        [
+          "Content-Type",
+          "text/plain"
+        ]
+      ],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": []
+      },
+      "effect_if_sent": true
+    },
+    {
+      "id": "preflight-pass-actual-fail",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "PUT",
+      "headers": [],
+      "preflight": {
+        "status": 204,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ],
+          [
+            "Access-Control-Allow-Methods",
+            "PUT"
+          ],
+          [
+            "Access-Control-Allow-Headers",
+            ""
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": []
+      },
+      "effect_if_sent": true
+    },
+    {
+      "id": "unsupported-safe-header",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [
+        [
+          "Accept-Language",
+          "en"
+        ]
+      ],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "unsupported-redirect",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 302,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "https://trusted.test"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    },
+    {
+      "id": "wildcard-acac-omit",
+      "origin": "https://trusted.test",
+      "credentials": "omit",
+      "method": "GET",
+      "headers": [],
+      "preflight": null,
+      "response": {
+        "status": 200,
+        "headers": [
+          [
+            "Access-Control-Allow-Origin",
+            "*"
+          ],
+          [
+            "Access-Control-Allow-Credentials",
+            "true"
+          ]
+        ]
+      },
+      "effect_if_sent": false
+    }
+  ]
+}
